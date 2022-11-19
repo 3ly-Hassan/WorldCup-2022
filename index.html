@@ -741,79 +741,84 @@
 
             for (row of standing.table) {
               tableContent += `
-                        <li class="list-group-item">
-                                <div class="row">
+              <!-- TEAM -->
+                <li class="list-group-item">
+                  <div class="row">
+                    <!-- TEAM & KSA -->
+                    <div
+                      class="col-4 d-flex align-items-center justify-content-center"
+                      style="text-align: center"
+                    >
+                      <span class="flag">
+                        <img
+${row.crest}
+                          alt=""
+                          style="width: 40px; height: 40px"
+                        />
+                      </span>
+                      <h5 style="margin: auto 4px">${row.tla}
+</h5>
+                    </div>
+                    <!--// TEAM & KSA //-->
 
-                                    <!-- TEAM & KSA -->
-                                    <div class="col-lg-4 col-sm-4 d-flex align-items-center justify-content-center" style="text-align: center;">
-                                        
-                                        <span class="flag">
-                                            <img 
-                                                class="rounded-circle border border-2" 
-                                                src="${row.team.crest}" 
-                                                alt=""
-                                                style="width: 40px; height: 40px; object-fit: cover"
-                                            >
-                                        </span>
-                                        <h5 style="margin:auto 4px">${row.team.tla}</h5>
-                                    </div>
-                                    <!--// TEAM & KSA //-->
+                    <!-- WIN -->
+                    <div
+                      class="col-2 d-flex align-items-center justify-content-center"
+                      style="text-align: center"
+                    >
+${row.won}
+                      
+                    </div>
+                    <!--// WIN //-->
 
-                                    <!-- WIN -->
-                                    <div class="col-lg-2 col-sm-2">
-                                        ${row.won}
-                                    </div>
-                                    <!--// WIN //-->
+                    <!-- LOSS -->
+                    <div
+                      class="col-2 d-flex align-items-center justify-content-center"
+                      style="text-align: center"
+                    >
+${row.lost}
+                      
+                    </div>
+                    <!--// LOSS //-->
 
-                                    <!-- LOSS -->
-                                    <div class="col-lg-2 col-sm-2">
-                                        ${row.lost}
-                                    </div>
-                                    <!--// LOSS //-->
+                    <div
+                      class="col-2 d-flex align-items-center justify-content-center"
+                      style="text-align: center"
+                    >
+                    ${row.draw}
+                    </div>
 
-                                    
-                                    <div class="col-lg-2 col-sm-2">
-                                        ${row.draw}
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-2">
-                                        <b>${row.points}</b>
-                                    </div>
-                                </div>
-                                
-                        </li>
-                        <!--// TEAM //-->
+                    <div
+                      class="col-2 d-flex align-items-center justify-content-center"
+                      style="text-align: center"
+                    >
+                    <b>${row.points}</b>
+                    </div>
+                  </div>
+                </li>
+                <!--// TEAM //-->
                             `;
             }
 
             const content = `
-                <div class="col-lg-6" style="margin-top: 20px">
-                    <div class="card shadow border-none">
-                        <div class="card-header bg-primary" style="text-align: center">
-                            <b>${standing.group}</b>
-                        </div>
-                        <div class="row m-0 bg-secondary">
-                            <div class="col-lg-4 col-sm-4" style="text-align: center;">
-                                team
-                            </div>
-                            <div class="col-lg-2 col-sm-2">
-                                W
-                            </div>
-                            <div class="col-lg-2 col-sm-2">
-                                L
-                            </div>
-                            <div class="col-lg-2 col-sm-2">
-                                D
-                            </div>
-                            <div class="col-lg-2 col-sm-2">
-                                Pts
-                            </div>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                                ${tableContent}
-                        </ul>
-                    </div>
-                </div>
+            <!-- GROUP COL -->
+          <div class="col-md-6 mt-5">
+            <div class="card shadow border-none">
+              <div class="card-header bg-primary" style="text-align: center">
+                <b>${standing.group}</b>
+              </div>
+              <div class="row m-0 bg-secondary">
+                <div class="col-4" style="text-align: center">team</div>
+                <div class="col-2" style="text-align: center">W</div>
+                <div class="col-2" style="text-align: center">L</div>
+                <div class="col-2" style="text-align: center">D</div>
+                <div class="col-2" style="text-align: center">Pts</div>
+              </div>
+              <ul class="list-group list-group-flush">
+                ${tableContent}
+              </ul>
+            </div>
+          </div>
                 `;
             document.getElementById("standings").innerHTML += content;
           }
@@ -865,95 +870,88 @@
               matchTime.getUTCSeconds();
 
             const content = `
-                    <!-- MATCH COL -->
-                    <div class="col-lg-12" >
-
-                        <div class="card shadow rounded-pill mt-5" style="overflow: hidden">                            
-
-                            <!-- MATCH CARD -->
-                            <div class="card-body p-0">
-                                <div class="row">
-
-                                    <!-- FIRST TEAM COL -->
-                                    <div class="col-lg-3 bg-primary d-flex flex-direction-column justify-content-center align-items-center" style="border-right: solid 5px #5b0d25;">
-                                        <div class="d-flex align-items-center justify-content-center" style="text-align: center; margin: auto 0">
-                                        
-                                            <div>
-                                                <div class="flag">
-                                                    <img 
-                                                        class="rounded-circle border border-2" 
-                                                        src="${homeTeam.crest}" 
-                                                        alt=""
-                                                        style="width: 40px; height: 40px; object-fit: cover"
-                                                    >
-                                                </div>
-                                                <h5 style="margin:auto 4px">${
-                                                  homeTeam.tla
-                                                }</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--// FIRST TEAM COL //-->
-
-                                    <!-- VERSUS COL -->
-                                    <div class="col-lg-6" style="text-align: center">
-                                        <div class="row">
-                                            <div class="col-lg-4" style="margin: auto 0px">
-                                                <h3>
-                                                    ${
-                                                      match.score.fullTime
-                                                        .home ?? "-"
-                                                    }
-                                                </h3>
-                                            </div>
-
-                                            <div class="col-lg-4">
-                                                <h6>${match.group}</h6>
-                                                <h1>X</h1>                                        
-                                                <h6>${
-                                                  dateString + dateTime
-                                                }</h6>
-                                            </div>
-
-                                            <div class="col-lg-4" style="margin: auto 0px">
-                                                <h3>
-                                                    ${
-                                                      match.score.fullTime
-                                                        .away ?? "-"
-                                                    }
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--// VERSUS COL //-->
-
-
-                                    <!-- SECOND TEAM COL -->
-                                    <div class="col-lg-3 bg-primary d-flex flex-direction-column justify-content-center align-items-center" style="border-left: solid 5px #5b0d25;">
-                                        <div class="d-flex align-items-center justify-content-center" style="text-align: center; margin: auto 0">
-                                        
-                                            <div>
-                                                <div class="flag">
-                                                    <img 
-                                                        class="rounded-circle border border-2" 
-                                                        src="${awayTeam.crest}" 
-                                                        alt=""
-                                                        style="width: 40px; height: 40px; object-fit: cover"
-                                                    >
-                                                </div>
-                                                <h5 style="margin:auto 4px">${
-                                                  awayTeam.tla
-                                                }</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--// SECOND TEAM COL //-->
-                                </div>
-                            </div>
-                            <!--// MATCH CARD //-->
+            <!-- MATCH COL -->
+            <div class="col-lg-12">
+              <div
+                class="card shadow rounded-pill mt-5"
+                style="overflow: hidden"
+              >
+                <!-- MATCH CARD -->
+                <div class="card-body p-0">
+                  <div class="row">
+                    <!-- FIRST TEAM COL -->
+                    <div
+                      class="col-3 bg-primary d-flex flex-direction-column justify-content-center align-items-center p-2"
+                      style="border-right: solid 5px #5b0d25"
+                    >
+                      <div
+                        class="d-flex align-items-center justify-content-center"
+                        style="text-align: center; margin: auto 0"
+                      >
+                        <div>
+                          <div class="flag mb-2">
+                            <img
+                              class="rounded-circle border border-2"
+                              src="${homeTeam.crest}"
+                              alt=""
+                              style="width: 40px; height: 40px"
+                            />
+                          </div>
+                          <h5 style="margin: auto 4px">${homeTeam.tla}</h5>
                         </div>
+                      </div>
                     </div>
-                    <!--// MATCH COL //-->
+                    <!--// FIRST TEAM COL //-->
+
+                    <!-- VERSUS COL -->
+                    <div class="col-6" style="text-align: center">
+                      <div class="row">
+                        <div class="col-4" style="margin: auto 0px">
+                          <h3>${match.score.fullTime.home ?? "-"}</h3>
+                        </div>
+
+                        <div class="col-4">
+                          <h6>>${match.group}</h6>
+                          <h1>X</h1>
+                          <h6>${dateString}</h6>
+                        </div>
+
+                        <div class="col-4" style="margin: auto 0px">
+                          <h3>${match.score.fullTime.away ?? "-"}</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <!--// VERSUS COL //-->
+
+                    <!-- SECOND TEAM COL -->
+                    <div
+                      class="col-3 bg-primary d-flex flex-direction-column justify-content-center align-items-center p-2"
+                      style="border-left: solid 5px #5b0d25"
+                    >
+                      <div
+                        class="d-flex align-items-center justify-content-center"
+                        style="text-align: center; margin: auto 0"
+                      >
+                        <div>
+                          <div class="flag mb-2">
+                            <img
+                              class="rounded-circle border border-2"
+                              src="${awayTeam.crest}" 
+                              alt=""
+                              style="width: 40px; height: 40px"
+                            />
+                          </div>
+                          <h5 style="margin: auto 4px">${awayTeam.tla}</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <!--// SECOND TEAM COL //-->
+                  </div>
+                </div>
+                <!--// MATCH CARD //-->
+              </div>
+            </div>
+            <!--// MATCH COL //-->
                     
                 `;
             document.getElementById("matches").innerHTML += content;
